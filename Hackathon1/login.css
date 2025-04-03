@@ -1,0 +1,327 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    background-image: url("loginDontJudge.jpg");
+    background-size: cover;
+    backdrop-filter: blur(10px);
+}
+header {
+    position: relative;
+    align-items: center;
+    padding-left: 8%;
+    padding-right: 8%;
+    box-sizing: border-box;
+    background-color: transparent;
+}
+
+.navbar{
+    height: 14%;
+    display: flex;
+    position:relative;
+    align-items: center;
+}
+.logo img{
+    width: 20%;
+    height: 12.6%;
+    cursor: pointer;
+}
+.menu{
+    flex: 1;
+    text-align: right;
+    height: 100%;
+    align-content: center;
+}
+.login{
+    height: 50%;
+    display: flex;
+    width: 10%;
+    align-content: center;
+    justify-content: center;
+    margin-left: 60px;
+}
+.login .btnLogin-popup {
+    background: transparent;
+    border: 60% solid white;
+    outline: none;
+    width: 100%;
+    height:100%;
+    font-size: 125%;
+    border-bottom-color: #fff;
+    border-left-color: white;
+    border-top-color: #fff;
+    border-right-color: #fff;
+    color: #fff;
+    font-weight: 450;
+    font-family: Arial, serif;
+    border-radius: 10%;
+    cursor: pointer;
+}
+.menu ul li {
+    list-style: none;
+    display: inline-block;
+    margin-left: 60px;
+}
+.menu ul li a {
+    text-decoration: none;
+    color: rgb(247, 244, 244);
+    font-size: 125%; 
+    position: relative;
+}
+.menu ul li a:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: -1px; 
+    height: 6%; 
+    background: #f6f8f8;
+    border-radius: 5%;
+    transform: translateY(10px); 
+    transition: .5s; 
+    opacity: 0;
+}
+.menu ul li a:hover::after {
+    transform: translateY(0);
+    opacity: 1.5;
+}
+.background {
+    width: 100%;
+    height:100vh;
+    background-image: url('loginDontJudge.jpg');
+    filter: blur(4px);
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+}
+.container{
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    width: 75%; 
+    height: 80%; 
+    background: url('loginDontJudge.jpg');
+    background-size: cover; 
+    background-position: center;
+    border-radius: 10px;
+}
+
+.container .content {
+    position: absolute;
+    top:0;
+    left: 0; 
+    width: 58%;
+    height: 100%;
+    background-color: transparent; 
+    padding-left: 80px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    padding-right: 80px;
+    color:aliceblue; 
+    display: flex;
+    flex-direction: column;
+}
+
+.content .logo{
+    font-size: 30px;
+    color:rgba(10, 87, 53, 0.822);
+}
+
+.text-sci h2{
+    font-size: 40px;
+    line-height: 1;
+    color:rgba(10, 87, 53, 0.822);
+}
+
+.text-sci h2 span{
+    font-size: 25px;
+    color:rgba(10, 87, 53, 0.822);
+}
+
+.text-sci p{
+    font-size: 16px;
+    margin: 20px 0;
+    color:rgba(10, 87, 53, 0.822);
+}
+
+.social-icons a svg{
+    font-size: 22px;
+    color: aliceblue;
+    margin-right: 4px;
+    transition: .5s ease;
+}
+
+.social-icons a:hover svg{
+    transform: scale(1.2);
+}
+
+.container .logreg-box {
+    position: absolute;
+    top:0;
+    left: 450px; 
+    right: 0;
+    width: calc(100% - 40%);
+    height: 100%;
+    overflow: hidden;
+}
+
+#beta{
+    font-size: 16px;
+    margin: 20px 0;
+    color:rgba(255, 255, 255, 0.979);
+
+}
+
+
+
+.logreg-box .form-box{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    backdrop-filter: blur(20px);
+    border-top-right-radius: 10px ;
+    border-bottom-right-radius: 10px;
+    color: aliceblue;
+}
+
+.logreg-box .form-box.login{
+    transform: translateX(0);
+    transition: transform .6s ease;
+    transition-delay: .7s;
+}
+
+.logreg-box.active .form-box.login{
+    transform: translateX(800px);
+    transition-delay: 0s;
+}
+
+.logreg-box .form-box.register{
+    transform: translateX(800px);
+    transition: transform .6s ease;
+    transition-delay: 0s;
+}
+
+.logreg-box.active .form-box.register{
+    transform: translateX(0px);
+    transition-delay: .7s;
+}
+
+.form-box .acount{
+    justify-items: center;
+    margin-left: 40%;
+}
+
+.acount .bx{
+    font-size: 4.8rem;
+
+}
+
+.form-box h2{
+    font-size: 32px;
+    text-align: center;
+}
+
+.form-box .imputbox{
+    position: relative;
+    width: 340px;
+    height: 50px;
+    border-bottom: 2px solid #fff;
+    margin: 30px 0;
+}
+
+.imputbox input{
+    width: 100%;
+    height: 100%;
+    background-color:transparent;
+    border: none;
+    outline: none;
+    font-size: 16px; 
+    color: aliceblue;
+    font-weight: 500;
+    padding-right: 30px;
+}
+
+
+
+.imputbox label {
+    position: absolute;
+    top: 50%; 
+    left: 0; 
+    transform: translateY(-50%);
+    font-size: 16;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s ease;
+}
+
+.imputbox input:focus~label,
+.imputbox input:valid~label{
+    top: -5px
+}
+.imputbox .icon{
+    position: absolute;
+    top: 13px;
+    right: 0;
+    font-size: 19px;
+}
+.form-box .remember-forgot{
+    font-size: 14.5px; 
+    font-weight: 500;
+    margin: -15px 0 15px; 
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-forgot label input{
+    accent-color: #fff;
+    margin-right: 3px; 
+}
+
+.remember-forgot a {
+    color:aliceblue; 
+    text-decoration: none;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+.btn{
+    width: 100%;
+    height: 45px;
+    background-color: #c4103d;
+    border: none;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px; 
+    color: aliceblue;
+    font-weight: 500;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.form-box .login-register{
+    font-size: 14.5px;
+    text-align: center;
+    font-weight: 500;
+    margin-top: 25px;
+}
+
+.login-register p a{ 
+    color: aliceblue; 
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-register p a:hover {
+    text-decoration: underline;
+}

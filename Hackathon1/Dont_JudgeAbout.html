@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700;900&display=swap"rel="stylesheet">
+    <link rel="stylesheet" href="Dont_JudgeAbout.css"> 
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title> Don't Judge || Hackathon </title>
+</head>
+<body>
+    <header class="header">
+        <div class="navbar">
+            <div class="logo">
+                <a href="login.html">
+                    <img src="DevinciLogo.png" alt="logo">
+                </a>
+                <a href="Dont_JudgeAbout.html">
+                    <img src="book-bookmark-solid-24.png" alt="ss">
+                </a>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="Dont_JudgeHome.html">Accueil</a></li>
+                    <li><a href="Dont_JudgeQuizz.html">Quizz</a></li>
+                    <li><a href="DontJudgeHangmanGame.html">Pendu</a></li>
+                    <li><a href="Dont_JudgeShotWheel.html">Roulette</a></li>
+                </ul>
+            </div>
+            <div class="login">
+                <a href="Dont_JudgeRules.html"><button class="btnLogin-popup">Règles</button></a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <h2>Voici nos Sources:</h2>
+        <h1 id="source">
+			<a class="typewrite" data-period="2000" data-type='[ "Le Monde", "editions-legislatives.fr", "Pinterest", "Le Parisien","Gouv.fr", "lamontagne.fr", "actu.fr", "hbrfrance.fr", "actu-juridique.fr", "Emil Roy Youtube", "macsf.fr", "handicap.fr", "canva", "Boxicons.com", "htmlcolorcodes.com", "La BBC", "helloworkplace.fr" ]'><span class="wrap"></span></a>
+		</h1>
+		<script>
+			//https://css-tricks.com/snippets/css/typewriter-effect/ seul balise script copié
+		var TxtType = function(el, toRotate, period) {
+				this.toRotate = toRotate;
+				this.el = el;
+				this.loopNum = 0;
+				this.period = parseInt(period, 10) || 2000;
+				this.txt = '';
+				this.tick();
+				this.isDeleting = false;
+			};
+
+		TxtType.prototype.tick = function() {
+			var i = this.loopNum % this.toRotate.length;
+			var fullTxt = this.toRotate[i];
+				if (this.isDeleting) {
+				this.txt = fullTxt.substring(0, this.txt.length - 1);
+				} else {
+				this.txt = fullTxt.substring(0, this.txt.length + 1);
+				}
+
+				this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+				var that = this;
+				var delta = 200 - Math.random() * 100;
+
+				if (this.isDeleting) { delta /= 2; }
+
+				if (!this.isDeleting && this.txt === fullTxt) {
+				delta = this.period;
+				this.isDeleting = true;
+				} else if (this.isDeleting && this.txt === '') {
+				this.isDeleting = false;
+				this.loopNum++;
+				delta = 500;
+				}
+
+				setTimeout(function() {
+				that.tick();
+				}, delta);
+			};
+
+			window.onload = function() {
+				var elements = document.getElementsByClassName('typewrite');
+				for (var i=0; i<elements.length; i++) {
+					var toRotate = elements[i].getAttribute('data-type');
+					var period = elements[i].getAttribute('data-period');
+						if (toRotate) {
+					new TxtType(elements[i], JSON.parse(toRotate), period);
+					}
+				}
+				// INJECT CSS
+				var css = document.createElement("style");
+				css.type = "text/css";
+				css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+				document.body.appendChild(css);
+		};
+		</script>
+    </main>    
+</body>
+</html>

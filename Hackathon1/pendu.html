@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu du Pendu</title>
+    <link rel="stylesheet" href="pendu.css">
+</head>
+<body>
+    <header>
+        <h1>Jeu du Pendu</h1>
+        <p>Devine le mot caché !</p>
+    </header>
+
+    <main>
+        <section class="game-container">
+            <div id="word" class="word-container"></div>
+            <div id="wrong-letters" class="wrong-letters"></div>
+
+            <div id="popup-container" class="popup" style="display: none;">
+                <div id="final-message"></div>
+                <button id="play-again-button">Jouer à nouveau</button>
+            </div>
+
+            <button id="play-button">Jouer à nouveau</button>
+
+            <div>
+                <input type="text" id="letter-input" maxlength="1">
+                <button id="guess-button">Deviner</button>
+            </div>
+
+            <div id="figure-container" class="figure-container">
+              <svg height="250" width="200">
+                  <line x1="60" y1="20" x2="140" y2="20" id="line1" class="figure-part" style="display: none;"/>
+                  <line x1="140" y1="20" x2="140" y2="50" id="line2" class="figure-part" style="display: none;"/>
+                  <line x1="60" y1="20" x2="60" y2="230" id="line3" class="figure-part" style="display: none;"/>
+                  <line x1="20" y1="230" x2="100" y2="230" id="line4" class="figure-part" style="display: none;"/>
+                  <circle cx="140" cy="70" r="20" id="head" class="figure-part" style="display: none;"/>
+                  <line x1="140" y1="90" x2="140" y2="150" id="body" class="figure-part" style="display: none;"/>
+                  <line x1="140" y1="150" x2="120" y2="190" id="leftarm" class="figure-part" style="display: none;"/>
+                  <line x1="140" y1="150" x2="160" y2="190" id="rightarm" class="figure-part" style="display: none;"/>
+                  <line x1="140" y1="120" x2="120" y2="100" id="leftleg" class="figure-part" style="display: none;"/>
+                  <line x1="140" y1="120" x2="160" y2="100" id="rightleg" class="figure-part" style="display: none;"/>
+              </svg>
+          </div>
+          </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Jeu du Pendu</p>
+    </footer>
+
+    <script>
+        const playButton = document.getElementById('play-button');
+        const letterInput = document.getElementById('letter-input');
+        const guessButton = document.getElementById('guess-button');
+        const wordDisplay = document.getElementById('word');
+        const figureParts = document.querySelectorAll('.figure-part');
+
+        let word = '';
+        let guessedLetters = [];
+        let wrongLetters = [];
+        let figureIndex = 0;
+
+        function chooseWord() {
+            const words = ['ordinateur', 'programmation', 'javascript', 'developpeur', 'algorithme'];
+            word = words[Math.floor(Math.random() * words.length)];
+        }
+
+        function displayWord() {
+            let display = '';
+            for (let letter of word) {
+                if (guessedLetters.includes(letter)) {
+                    display += letter;
+                } else {
+                    display += '_';
+                }
+                display += ' ';
+            }
+            wordDisplay.textContent = display;
+        }
+
+        function resetGame() {
+            chooseWord();
+            guessedLetters = [];
+            wrongLetters = [];
+            figureIndex = 0;
+            figureParts.forEach(part => part.style.display = 'none');
+            displayWord();
+            playButton.style.display = 'none';
+        }
+
+        playButton.addEventListener('click', () => {
+            resetGame();
+        });
+
+        guessButton.addEventListener('click', () => {
+            const letter = letterInput.value.toLowerCase();
+
+            if (letter.length === 1 && letter.match(/[a-z]/i)) {
+                if (!guessedLetters.includes(letter) && !wrongLetters.includes(letter)) {
+                    if (word.includes(letter)) {
+                        guessedLetters.push(letter);
+                        displayWord();
+                    } else {
+                        wrongLetters.push(letter);
+                        figureParts[figureIndex].style.display = 'block';
+                        figureIndex++;
+                        // Ici, tu peux ajouter le code pour vérifier si le jeu est perdu
+                    }
+                }
+                letterInput.value = '';
+            } else {
+                alert("Veuillez entrer une seule lettre valide.");
+            }
+        });
+
+        chooseWord();
+        displayWord();
+    </script>
+</body>
+</html>

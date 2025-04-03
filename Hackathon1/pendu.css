@@ -1,0 +1,44 @@
+body {
+  background-color: #ffe6f0; 
+  font-family: sans-serif;
+  text-align: center;
+}
+
+h1 {
+  color: #ff69b4;
+}
+
+.word-container {
+  font-size: 2em;
+  margin: 20px 0;
+  color: #ff69b4; 
+}
+
+.wrong-letters {
+  color: #82ff69;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #a92f6c; 
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ffb6c1; 
+}
+
+input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ba7899; 
+  border-radius: 5px;
+}
+
+.figure-container svg {
+  stroke: #ff69b4; 
+  stroke-width: 2;
+}

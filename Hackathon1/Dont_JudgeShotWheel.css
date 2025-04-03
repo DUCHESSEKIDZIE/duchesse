@@ -1,0 +1,132 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+header {
+    position: relative;
+    align-items: center;
+    padding-left: 8%;
+    padding-right: 8%;
+    box-sizing: border-box;
+}
+
+.navbar{
+    height: 14%;
+    display: flex;
+    position:relative;
+    align-items: center;
+}
+.logo img{
+    width: 20%;
+    height: 12.6%;
+    cursor: pointer;
+}
+.menu{
+    flex: 1;
+    text-align: right;
+    height: 100%;
+    align-content: center;
+}
+.login{
+    height: 50%;
+    display: flex;
+    width: 10%;
+    align-content: center;
+    justify-content: center;
+    margin-left: 60px;
+}
+.login .btnLogin-popup {
+    background: transparent;
+    border: 60% solid white;
+    outline: none;
+    width: 100%;
+    height:100%;
+    font-size: 125%;
+    border-bottom-color: #fff;
+    border-left-color: white;
+    border-top-color: #fff;
+    border-right-color: #fff;
+    color: #fff;
+    font-weight: 450;
+    font-family: Arial, serif;
+    border-radius: 10%;
+    cursor: pointer;
+}
+.menu ul li {
+    list-style: none;
+    display: inline-block;
+    margin-left: 60px;
+}
+.menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 125%; 
+    position: relative;
+}
+.menu ul li a:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: -1px; 
+    height: 6%; 
+    background: #fff;
+    border-radius: 5%;
+    transform: translateY(10px); 
+    transition: .5s; 
+    opacity: 0;
+}
+.menu ul li a:hover::after {
+    transform: translateY(0);
+    opacity: 1.5;
+}
+main{
+    width: 100%;
+    height: 100%;
+    margin: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.diapo{
+    position: relative;
+    overflow: hidden;
+}
+
+.elements{
+    display: flex;
+}
+
+.element{
+    flex: 1 0 100%;
+    position: relative;
+}
+
+.element > img{
+    width: 95%;
+    margin-left: 35px;
+}
+
+#nav-gauche, #nav-droit{
+    position: absolute;
+    top:50%; 
+    transform: translateY(-50%);
+    color: aliceblue;
+    font-size: 3.6rem;
+    cursor: pointer;
+}
+
+#nav-droit{
+    right: 10px;    
+}
+
+#nav-gauche{
+    left: 20px;
+}
+
+
+
+
+
